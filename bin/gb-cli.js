@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-'use strict';
-
 import pkg from '../package.json';
 import chalk from 'chalk';
 import clear from 'clear';

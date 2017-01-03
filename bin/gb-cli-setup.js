@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-'use strict';
-
 import program from 'commander';
 import inquirer from 'inquirer';
 import CLI from 'clui';
@@ -13,7 +11,7 @@ console.log('Setup project');
 console.log();
 
 let projectSetup = () => {
-    var questions = [
+    let questions = [
         {
             name: 'projectName',
             type: 'input',
@@ -112,7 +110,7 @@ let projectSetup = () => {
 }
 
 let createConfigFile = (data) => {
-    var status = new Spinner('Creating the config file...');
+    let status = new Spinner('Creating the config file...');
     status.start();
     console.log(data.projectName);
     status.stop();
@@ -120,7 +118,7 @@ let createConfigFile = (data) => {
 }
 
 let createProjectStructure = (data) => {
-    var status = new Spinner('Creating the project structure...');
+    let status = new Spinner('Creating the project structure...');
     status.start();
     console.log(data.createDirectories);
     status.stop();

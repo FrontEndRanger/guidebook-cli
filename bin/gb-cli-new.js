@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-'use strict';
-
 import program from 'commander';
 import inquirer from 'inquirer';
 import chalk from 'chalk';
@@ -9,7 +7,7 @@ import CLI from 'clui';
 import _ from 'lodash';
 import utils from '../libs/utils';
 
-const Spinner   = CLI.Spinner;
+const Spinner = CLI.Spinner;
 
 utils.init();
 
@@ -30,7 +28,7 @@ if (input) {
         console.log(chalk.red('Not a valid pattern type'));
     }
 } else {
-    var questions = [{
+    let questions = [{
         type: 'list',
         name: 'type',
         message: 'What do you want to create?',
@@ -44,13 +42,13 @@ if (input) {
         }
     }];
 
-    inquirer.prompt(questions).then(function(answers) {
+    inquirer.prompt(questions).then(answers => {
         createPattern(answers.type);
     });
 }
 
 function createPattern(type) {
-    var questions = [{
+    let questions = [{
         type: 'input',
         name: 'name',
         message: 'Name of the pattern'
@@ -67,9 +65,9 @@ function createPattern(type) {
     }];
 
     inquirer.prompt(questions)
-        .then(function(answers) {
+        .then(answers => {
             if (utils.createPattern(answers.name, answers.category, answers.css)) {
-                utils.saveData(function() {
+                utils.saveData(() => {
                     console.log(chalk.grey('----------------------------------------------------------------'));
                     console.log(chalk.green('\u2713 Your pattern has been created!'));
                     console.log(chalk.grey('----------------------------------------------------------------'));
