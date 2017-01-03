@@ -2,13 +2,14 @@
 
 'use strict';
 
-const program = require('commander'),
-    inquirer  = require('inquirer'),
-    chalk     = require('chalk'),
-    CLI       = require('clui'),
-    Spinner   = CLI.Spinner,
-    _         = require('lodash'),
-    utils     = require('../libs/utils');
+import program from 'commander';
+import inquirer from 'inquirer';
+import chalk from 'chalk';
+import CLI from 'clui';
+import _ from 'lodash';
+import utils from '../libs/utils';
+
+const Spinner   = CLI.Spinner;
 
 utils.init();
 

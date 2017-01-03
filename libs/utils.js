@@ -1,11 +1,11 @@
-const fs    = require('fs-extra'),
-    chalk   = require('chalk'),
-    glob    = require('glob'),
-    CLI     = require('clui'),
-    Spinner = CLI.Spinner;
-    
-const guidebookConfig = require('../test/guidebook-config'),
-    guidebookCliConfig = require('../test/guidebook-cli-config');
+import fs from 'fs-extra';
+import chalk from 'chalk';
+import glob from 'glob';
+import CLI from 'clui';
+const Spinner = CLI.Spinner;
+
+import guidebookConfig from '../test/guidebook-config';
+import guidebookCliConfig from '../test/guidebook-cli-config';
 
 module.exports = {
     $root: process.cwd(),
@@ -73,13 +73,13 @@ module.exports = {
         // Create a new pattern in a category
         var self = this,
             error = false;
-        
+
         name = name.toLowerCase();
         category = category.toLowerCase();
-        
+
         var patternPath = self.$config.guidebook.paths.src.patterns,
             cssExt = self.$config.cli.cssExt ? self.$config.cli.cssExt : 'css';
-        
+
         var pageFile = `${patternPath}/${category}/${name}/${name}.md`,
             baseFile = `${patternPath}/${category}/${name}/${name}-base.html`,
             cssFile = `${patternPath}/${category}/${name}/${name}.${cssExt}`;
@@ -87,21 +87,21 @@ module.exports = {
         // TODO: find a way to template the file content
         // TODO: Find a better way to name base and variants
         // TODO: Check if the pattern already exists, maybe in gb-cli-new
-        
+
         fs.outputFile(pageFile, 'Your code here', (err) => {
             if (err) {
                 error = true;
                 throw err;
             };
         });
-        
+
         fs.outputFile(baseFile, '<div></div>', (err) => {
             if (err) {
                 error = true;
                 throw err;
             };
         });
-        
+
         if (createCss) {
             fs.outputFile(cssFile, '/* CSS File */', (err) => {
                 if (err) {
@@ -110,8 +110,8 @@ module.exports = {
                 };
             });
         }
-        
-        return ! error;    
+
+        return ! error;
     },
     removePattern: (name) => {
         // Remove an existing pattern from disk

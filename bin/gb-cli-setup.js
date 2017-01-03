@@ -2,11 +2,12 @@
 
 'use strict';
 
-const program  = require('commander'),
-      inquirer = require('inquirer'),
-      CLI      = require('clui'),
-      Spinner  = CLI.Spinner,
-      chalk    = require('chalk');
+import program from 'commander';
+import inquirer from 'inquirer';
+import CLI from 'clui';
+import chalk from 'chalk';
+
+const Spinner  = CLI.Spinner;
 
 console.log('Setup project');
 console.log();
@@ -40,13 +41,13 @@ let projectSetup = () => {
             name: 'srcDirectory',
             type: 'input',
             message: 'The source directory for the styleguide, relative to the root of your project',
-            default: '/src/docs'    
+            default: '/src/docs'
         },
         {
             name: 'destDirectory',
             type: 'input',
             message: 'The destination directory for the styleguide, relative to the root of your project',
-            default: '/dest/docs'    
+            default: '/dest/docs'
         },
         {
             name: 'createDirectories',
@@ -87,7 +88,7 @@ let projectSetup = () => {
             message: 'Confirm project creation?'
         }
     ];
-    
+
     inquirer.prompt(questions)
         .then(function(answers) {
             if (answers.confirmGeneration) {
