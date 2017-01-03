@@ -58,3 +58,12 @@ The data of your styleguide.
 `gb-cli setup`: Setup the project to use Guidebook
 
 `gb-cli new`: Generate a new pattern, category or page
+
+## TODO
+
+- [ ] Generate config file
+- [ ] Check if a config file exist
+- [ ] Create a new category
+- [ ] Read config from external file
+- [ ] Scaffold a styleguide from config
+- [ ] Generate templates for pattern (md, html, css, js)
